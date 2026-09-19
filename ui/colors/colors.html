@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>中国传统色 · 配色视觉手册</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          sans-serif;
+        background: #f9f7f3;
+        color: #1e1e1e;
+        padding: 2rem 1.5rem;
+        line-height: 1.5;
+      }
+      .main-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 2.4rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+        border-left: 8px solid #b22712;
+        padding-left: 1rem;
+        margin-top: 0;
+        margin-bottom: 2rem;
+        color: #2c2c2c;
+      }
+      h2 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-top: 2.8rem;
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.3rem;
+        border-bottom: 1px solid #d9d2c5;
+        color: #3a3a3a;
+        letter-spacing: 1px;
+      }
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 1.6rem 0 0.8rem 0;
+        color: #4e4e4e;
+        letter-spacing: 0.5px;
+      }
+      .color-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1.8rem;
+      }
+      .color-card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow:
+          0 6px 14px rgba(0, 0, 0, 0.06),
+          0 2px 6px rgba(0, 0, 0, 0.03);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.2s ease;
+        background: white;
+        width: 180px;
+        flex-shrink: 0;
+        border: 1px solid #e8e2d8;
+      }
+      .color-card:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 14px 24px rgba(0, 0, 0, 0.08),
+          0 4px 8px rgba(0, 0, 0, 0.02);
+      }
+      .color-swatch {
+        height: 110px;
+        width: 100%;
+        transition: filter 0.2s;
+      }
+      .color-info {
+        padding: 0.8rem 0.75rem 0.7rem 0.75rem;
+        background: #ffffff;
+        border-top: 1px solid #f0ebe4;
+      }
+      .color-name {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1f1f1f;
+        line-height: 1.3;
+        word-break: break-word;
+      }
+      .color-hex {
+        font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+        font-size: 0.8rem;
+        color: #7a6e62;
+        margin-top: 0.25rem;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      /* 配色卡片 (两个颜色) */
+      .pair-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        margin: 1.2rem 0 2rem 0;
+      }
+      .pair-card {
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        border: 1px solid #e8e2d8;
+        transition: transform 0.15s ease;
+        width: 260px;
+        flex-shrink: 0;
+      }
+      .pair-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08);
+      }
+      .pair-colors {
+        display: flex;
+        height: 80px;
+        width: 100%;
+      }
+      .pair-color-block {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        letter-spacing: 0.5px;
+      }
+      .pair-meta {
+        padding: 0.7rem 0.9rem 0.8rem 0.9rem;
+      }
+      .pair-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2a2a2a;
+        margin-bottom: 0.3rem;
+      }
+      .pair-detail {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+        font-size: 0.75rem;
+        font-family: "SF Mono", monospace;
+        color: #5d5348;
+      }
+      .pair-detail span {
+        background: #f3efe9;
+        padding: 0.15rem 0.4rem;
+        border-radius: 20px;
+        font-size: 0.68rem;
+      }
+      /* 高级配色三色卡片 */
+      .trio-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 1.5rem 0 2rem;
+      }
+      .trio-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        border: 1px solid #e8e2d8;
+        width: 260px;
+        flex-shrink: 0;
+        transition: transform 0.15s ease;
+      }
+      .trio-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 28px rgba(0, 0, 0, 0.08);
+      }
+      .trio-colors {
+        display: flex;
+        height: 70px;
+        width: 100%;
+      }
+      .trio-color-block {
+        flex: 1;
+      }
+      .trio-meta {
+        padding: 0.75rem 0.9rem 0.9rem;
+      }
+      .trio-title {
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+        color: #2a2a2a;
+      }
+      .trio-hex-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.8rem;
+        font-family: "SF Mono", monospace;
+        font-size: 0.7rem;
+        color: #5d5348;
+      }
+      .trio-hex-list span {
+        background: #f3efe9;
+        padding: 0.15rem 0.4rem;
+        border-radius: 20px;
+      }
+      /* 配色必备 主辅色 */
+      .essential-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.2rem;
+        margin: 1.2rem 0 1.8rem;
+      }
+      .essential-card {
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e8e2d8;
+        overflow: hidden;
+        display: flex;
+        transition: transform 0.1s;
+      }
+      .essential-card:hover {
+        transform: translateY(-2px);
+      }
+      .essential-swatch {
+        width: 80px;
+        flex-shrink: 0;
+      }
+      .essential-swatch div {
+        height: 50%;
+        width: 100%;
+      }
+      .essential-text {
+        padding: 0.6rem 0.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+      .essential-label {
+        font-weight: 600;
+        color: #333;
+        font-size: 0.85rem;
+        margin-bottom: 0.2rem;
+      }
+      .essential-hex {
+        font-family: "SF Mono", monospace;
+        color: #6f6257;
+        font-size: 0.75rem;
+        letter-spacing: 0.2px;
+      }
+      .section-note {
+        color: #7b6e60;
+        font-size: 0.85rem;
+        margin-top: -0.5rem;
+        margin-bottom: 0.5rem;
+        font-style: italic;
+      }
+      footer {
+        margin-top: 4rem;
+        text-align: center;
+        font-size: 0.75rem;
+        color: #b1a69b;
+        border-top: 1px solid #e2d9cf;
+        padding-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>🎨 中国传统色 · 视觉配色手册</h1>
+
+      <!-- 红色系 -->
+      <h2>红色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #b22712"></div>
+          <div class="color-info">
+            <div class="color-name">朱砂红</div>
+            <div class="color-hex">#b22712</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #9d1f2f"></div>
+          <div class="color-info">
+            <div class="color-name">胭脂红</div>
+            <div class="color-hex">#9d1f2f</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #d4042d"></div>
+          <div class="color-info">
+            <div class="color-name">蕉红</div>
+            <div class="color-hex">#d4042d</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 蓝色系 -->
+      <h2>蓝色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #15336e"></div>
+          <div class="color-info">
+            <div class="color-name">晴山蓝</div>
+            <div class="color-hex">#15336e</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #182876"></div>
+          <div class="color-info">
+            <div class="color-name">洒蓝</div>
+            <div class="color-hex">#182876</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #0dafc6"></div>
+          <div class="color-info">
+            <div class="color-name">孔雀蓝</div>
+            <div class="color-hex">#0dafc6</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #5a92e5"></div>
+          <div class="color-info">
+            <div class="color-name">矢车菊蓝</div>
+            <div class="color-hex">#5a92e5</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #0f64b5"></div>
+          <div class="color-info">
+            <div class="color-name">鸢尾蓝</div>
+            <div class="color-hex">#0f64b5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 绿色系 -->
+      <h2>绿色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #01795d"></div>
+          <div class="color-info">
+            <div class="color-name">琉璃绿</div>
+            <div class="color-hex">#01795d</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #003d37"></div>
+          <div class="color-info">
+            <div class="color-name">星灰绿</div>
+            <div class="color-hex">#003d37</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #6fba2c"></div>
+          <div class="color-info">
+            <div class="color-name">春叶绿</div>
+            <div class="color-hex">#6fba2c</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #5e8034"></div>
+          <div class="color-info">
+            <div class="color-name">翠微</div>
+            <div class="color-hex">#5e8034</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 紫色系 -->
+      <h2>紫色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #47176d"></div>
+          <div class="color-info">
+            <div class="color-name">凝夜紫</div>
+            <div class="color-hex">#47176d</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #690dad"></div>
+          <div class="color-info">
+            <div class="color-name">晶石紫</div>
+            <div class="color-hex">#690dad</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #722169"></div>
+          <div class="color-info">
+            <div class="color-name">皇家紫</div>
+            <div class="color-hex">#722169</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 橙色系 -->
+      <h2>橙色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #eb6127"></div>
+          <div class="color-info">
+            <div class="color-name">火星橙</div>
+            <div class="color-hex">#eb6127</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #f6ab00"></div>
+          <div class="color-info">
+            <div class="color-name">枫叶橙</div>
+            <div class="color-hex">#f6ab00</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #db7a0e"></div>
+          <div class="color-info">
+            <div class="color-name">暖阳橙</div>
+            <div class="color-hex">#db7a0e</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 黄色系 -->
+      <h2>黄色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #ffb909"></div>
+          <div class="color-info">
+            <div class="color-name">琥珀黄</div>
+            <div class="color-hex">#ffb909</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #faca2e"></div>
+          <div class="color-info">
+            <div class="color-name">柠檬黄</div>
+            <div class="color-hex">#faca2e</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 粉色系 -->
+      <h2>粉色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #ee93a2"></div>
+          <div class="color-info">
+            <div class="color-name">桃夭</div>
+            <div class="color-hex">#ee93a2</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #ea6097"></div>
+          <div class="color-info">
+            <div class="color-name">霓虹粉</div>
+            <div class="color-hex">#ea6097</div>
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: #eb6d98"></div>
+          <div class="color-info">
+            <div class="color-name">梅洛粉</div>
+            <div class="color-hex">#eb6d98</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 青色系 -->
+      <h2>青色系</h2>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: #41b5c2"></div>
+          <div class="color-info">
+            <div class="color-name">碧青</div>
+            <div class="color-hex">#41b5c2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 中国传统配色 (21组) -->
+      <h2>中国传统配色</h2>
+      <div class="pair-grid">
+        <!-- 1 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #40405c">
+              #40405c
+            </div>
+            <div class="pair-color-block" style="background: #fdd979">
+              #fdd979
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">1. 青黛 + 黄栗留</div>
+            <div class="pair-detail">
+              <span>青黛 #40405c</span><span>黄栗留 #fdd979</span>
+            </div>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #e8b88b">
+              #e8b88b
+            </div>
+            <div class="pair-color-block" style="background: #4a4b9c">
+              #4a4b9c
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">2. 绢色 + 苍霞</div>
+            <div class="pair-detail">
+              <span>绢色 #e8b88b</span><span>苍霞 #4a4b9c</span>
+            </div>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #f2d1e2">
+              #f2d1e2
+            </div>
+            <div class="pair-color-block" style="background: #4f3176">
+              #4f3176
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">3. 退红 + 以初</div>
+            <div class="pair-detail">
+              <span>退红 #f2d1e2</span><span>以初 #4f3176</span>
+            </div>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #e6b443">
+              #e6b443
+            </div>
+            <div
+              class="pair-color-block"
+              style="background: #f8f3e9; color: #333"
+            >
+              #f8f3e9
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">4. 蜜蜡 + 象牙白</div>
+            <div class="pair-detail">
+              <span>蜜蜡 #e6b443</span><span>象牙白 #f8f3e9</span>
+            </div>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #beda37">
+              #beda37
+            </div>
+            <div class="pair-color-block" style="background: #1f3028">
+              #1f3028
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">5. 绿茶 + 沉绿</div>
+            <div class="pair-detail">
+              <span>绿茶 #beda37</span><span>沉绿 #1f3028</span>
+            </div>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #ef91a1">
+              #ef91a1
+            </div>
+            <div class="pair-color-block" style="background: #9bbbac">
+              #9bbbac
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">6. 杨妃 + 水绿</div>
+            <div class="pair-detail">
+              <span>杨妃 #ef91a1</span><span>水绿 #9bbbac</span>
+            </div>
+          </div>
+        </div>
+        <!-- 7 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #017869">
+              #017869
+            </div>
+            <div class="pair-color-block" style="background: #eb4b16">
+              #eb4b16
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">7. 翠绿 + 朱砂红</div>
+            <div class="pair-detail">
+              <span>翠绿 #017869</span><span>朱砂红 #eb4b16</span>
+            </div>
+          </div>
+        </div>
+        <!-- 8 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #5da4b1">
+              #5da4b1
+            </div>
+            <div
+              class="pair-color-block"
+              style="background: #f8f3e9; color: #333"
+            >
+              #f8f3e9
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">8. 天水碧 + 凝脂</div>
+            <div class="pair-detail">
+              <span>天水碧 #5da4b1</span><span>凝脂 #f8f3e9</span>
+            </div>
+          </div>
+        </div>
+        <!-- 9 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div
+              class="pair-color-block"
+              style="background: #fffbea; color: #333"
+            >
+              #fffbea
+            </div>
+            <div class="pair-color-block" style="background: #470125">
+              #470125
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">9. 米白 + 深红</div>
+            <div class="pair-detail">
+              <span>米白 #fffbea</span><span>深红 #470125</span>
+            </div>
+          </div>
+        </div>
+        <!-- 10 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #690dad">
+              #690dad
+            </div>
+            <div
+              class="pair-color-block"
+              style="background: #00f0fd; color: #111"
+            >
+              #00f0fd
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">10. 晶石紫 + 电光蓝</div>
+            <div class="pair-detail">
+              <span>晶石紫 #690dad</span><span>电光紫 #00f0fd</span>
+            </div>
+          </div>
+        </div>
+        <!-- 11 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #ff043a">
+              #ff043a
+            </div>
+            <div class="pair-color-block" style="background: #002169">
+              #002169
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">11. 科技红 + 深空蓝</div>
+            <div class="pair-detail">
+              <span>科技红 #ff043a</span><span>深空蓝 #002169</span>
+            </div>
+          </div>
+        </div>
+        <!-- 12 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #4e8966">
+              #4e8966
+            </div>
+            <div
+              class="pair-color-block"
+              style="background: #fffeee; color: #333"
+            >
+              #fffeee
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">12. 瓦松绿 + 玉子</div>
+            <div class="pair-detail">
+              <span>瓦松绿 #4e8966</span><span>玉子 #fffeee</span>
+            </div>
+          </div>
+        </div>
+        <!-- 13 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #47176d">
+              #47176d
+            </div>
+            <div
+              class="pair-color-block"
+              style="background: #fffbea; color: #333"
+            >
+              #fffbea
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">13. 凝夜紫 + 米白</div>
+            <div class="pair-detail">
+              <span>凝夜紫 #47176d</span><span>米白 #fffbea</span>
+            </div>
+          </div>
+        </div>
+        <!-- 14 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div
+              class="pair-color-block"
+              style="background: #fdeb55; color: #111"
+            >
+              #fdeb55
+            </div>
+            <div class="pair-color-block" style="background: #185a56">
+              #185a56
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">14. 旭日黄 + 深灰绿</div>
+            <div class="pair-detail">
+              <span>旭日黄 #fdeb55</span><span>深灰绿 #185a56</span>
+            </div>
+          </div>
+        </div>
+        <!-- 15 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #fe019a">
+              #fe019a
+            </div>
+            <div class="pair-color-block" style="background: #101820">
+              #101820
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">15. 洋红 + 深空灰</div>
+            <div class="pair-detail">
+              <span>洋红 #fe019a</span><span>深空灰 #101820</span>
+            </div>
+          </div>
+        </div>
+        <!-- 16 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div
+              class="pair-color-block"
+              style="background: #12f2fd; color: #111"
+            >
+              #12f2fd
+            </div>
+            <div class="pair-color-block" style="background: #e4058e">
+              #e4058e
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">16. 电光蓝 + 玫红</div>
+            <div class="pair-detail">
+              <span>电光蓝 #12f2fd</span><span>玫红 #e4058e</span>
+            </div>
+          </div>
+        </div>
+        <!-- 17 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div
+              class="pair-color-block"
+              style="background: #fade1f; color: #111"
+            >
+              #fade1f
+            </div>
+            <div class="pair-color-block" style="background: #690dad">
+              #690dad
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">17. 金菊 + 晶石紫</div>
+            <div class="pair-detail">
+              <span>金菊 #fade1f</span><span>晶石紫 #690dad</span>
+            </div>
+          </div>
+        </div>
+        <!-- 18 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #ff6047">
+              #ff6047
+            </div>
+            <div class="pair-color-block" style="background: #000035">
+              #000035
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">18. 火山橙 + 藏蓝色</div>
+            <div class="pair-detail">
+              <span>火山橙 #ff6047</span><span>藏蓝色 #000035</span>
+            </div>
+          </div>
+        </div>
+        <!-- 19 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div
+              class="pair-color-block"
+              style="background: #ffff00; color: #111"
+            >
+              #ffff00
+            </div>
+            <div class="pair-color-block" style="background: #002fa7">
+              #002fa7
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">19. 靓丽黄 + 宝蓝色</div>
+            <div class="pair-detail">
+              <span>靓丽黄 #ffff00</span><span>宝蓝色 #002fa7</span>
+            </div>
+          </div>
+        </div>
+        <!-- 20 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #da2357">
+              #da2357
+            </div>
+            <div
+              class="pair-color-block"
+              style="background: #00e592; color: #111"
+            >
+              #00e592
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">20. 茉莉花红 + 艾绿</div>
+            <div class="pair-detail">
+              <span>茉莉花红 #da2357</span><span>艾绿 #00e592</span>
+            </div>
+          </div>
+        </div>
+        <!-- 21 -->
+        <div class="pair-card">
+          <div class="pair-colors">
+            <div class="pair-color-block" style="background: #0f64b5">
+              #0f64b5
+            </div>
+            <div
+              class="pair-color-block"
+              style="background: #fffbea; color: #333"
+            >
+              #fffbea
+            </div>
+          </div>
+          <div class="pair-meta">
+            <div class="pair-title">21. 鸢尾蓝 + 流光白</div>
+            <div class="pair-detail">
+              <span>鸢尾蓝 #0f64b5</span><span>流光白 #fffbea</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 高级配色 (三色) -->
+      <h2>高级配色</h2>
+      <div class="trio-grid">
+        <!-- 1 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #151515"></div>
+            <div class="trio-color-block" style="background: #80ecb0"></div>
+            <div class="trio-color-block" style="background: #f8f8f8"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">1. 石墨黑 + 薄荷绿 + 珍珠白</div>
+            <div class="trio-hex-list">
+              <span>#151515</span><span>#80ecb0</span><span>#f8f8f8</span>
+            </div>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #7dd0f0"></div>
+            <div class="trio-color-block" style="background: #690dad"></div>
+            <div class="trio-color-block" style="background: #171b38"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">2. 湖风蓝 + 引力紫 + 蓝灰</div>
+            <div class="trio-hex-list">
+              <span>#7dd0f0</span><span>#690dad</span><span>#171b38</span>
+            </div>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #030921"></div>
+            <div class="trio-color-block" style="background: #0084d6"></div>
+            <div class="trio-color-block" style="background: #ffff00"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">3. 墨夜蓝 + 晴穹栏 + 日冕黄</div>
+            <div class="trio-hex-list">
+              <span>#030921</span><span>#0084d6</span><span>#ffff00</span>
+            </div>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #fcf2f3"></div>
+            <div class="trio-color-block" style="background: #ed5b70"></div>
+            <div class="trio-color-block" style="background: #7230b6"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">4. 棉花白 + 珊瑚红 + 晶石紫</div>
+            <div class="trio-hex-list">
+              <span>#fcf2f3</span><span>#ed5b70</span><span>#7230b6</span>
+            </div>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #5bc561"></div>
+            <div class="trio-color-block" style="background: #eb4743"></div>
+            <div class="trio-color-block" style="background: #0f0f0f"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">5. 春叶绿 + 提香红 + 曜石黑</div>
+            <div class="trio-hex-list">
+              <span>#5bc561</span><span>#eb4743</span><span>#0f0f0f</span>
+            </div>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #ea4e8f"></div>
+            <div class="trio-color-block" style="background: #141a26"></div>
+            <div class="trio-color-block" style="background: #fae4eb"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">6. 霓虹粉 + 典雅黑 + 桃气粉</div>
+            <div class="trio-hex-list">
+              <span>#ea4e8f</span><span>#141a26</span><span>#fae4eb</span>
+            </div>
+          </div>
+        </div>
+        <!-- 7 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #182876"></div>
+            <div class="trio-color-block" style="background: #bf7f66"></div>
+            <div class="trio-color-block" style="background: #f9f6e5"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">7. 洒蓝 + 赭石 + 米白</div>
+            <div class="trio-hex-list">
+              <span>#182876</span><span>#bf7f66</span><span>#f9f6e5</span>
+            </div>
+          </div>
+        </div>
+        <!-- 8 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #182876"></div>
+            <div class="trio-color-block" style="background: #eb4743"></div>
+            <div class="trio-color-block" style="background: #f9f6e5"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">8. 洒蓝 + 提香红 + 月苍白</div>
+            <div class="trio-hex-list">
+              <span>#182876</span><span>#eb4743</span><span>#f9f6e5</span>
+            </div>
+          </div>
+        </div>
+        <!-- 9 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #082a47"></div>
+            <div class="trio-color-block" style="background: #fe5ea0"></div>
+            <div class="trio-color-block" style="background: #fae4eb"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">9. 静海蓝 + 霓虹粉 + 霞光粉</div>
+            <div class="trio-hex-list">
+              <span>#082a47</span><span>#fe5ea0</span><span>#fae4eb</span>
+            </div>
+          </div>
+        </div>
+        <!-- 10 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #003d37"></div>
+            <div class="trio-color-block" style="background: #9d1f2f"></div>
+            <div class="trio-color-block" style="background: #fed4a7"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">10. 星灰绿 + 胭脂红 + 奢金</div>
+            <div class="trio-hex-list">
+              <span>#003d37</span><span>#9d1f2f</span><span>#fed4a7</span>
+            </div>
+          </div>
+        </div>
+        <!-- 11 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #931f24"></div>
+            <div class="trio-color-block" style="background: #000035"></div>
+            <div class="trio-color-block" style="background: #fed4a7"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">11. 暖桃红 + 藏蓝色 + 奢金</div>
+            <div class="trio-hex-list">
+              <span>#931f24</span><span>#000035</span><span>#fed4a7</span>
+            </div>
+          </div>
+        </div>
+        <!-- 12 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #eb6127"></div>
+            <div class="trio-color-block" style="background: #152639"></div>
+            <div class="trio-color-block" style="background: #f1ddbc"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">12. 火星橙 + 深海蓝 + 奶杏色</div>
+            <div class="trio-hex-list">
+              <span>#eb6127</span><span>#152639</span><span>#f1ddbc</span>
+            </div>
+          </div>
+        </div>
+        <!-- 13 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #690dad"></div>
+            <div class="trio-color-block" style="background: #ffff00"></div>
+            <div class="trio-color-block" style="background: #0f0f0f"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">13. 紫晶石 + 柠檬黄 + 曜石黑</div>
+            <div class="trio-hex-list">
+              <span>#690dad</span><span>#ffff00</span><span>#0f0f0f</span>
+            </div>
+          </div>
+        </div>
+        <!-- 14 -->
+        <div class="trio-card">
+          <div class="trio-colors">
+            <div class="trio-color-block" style="background: #65dd18"></div>
+            <div class="trio-color-block" style="background: #eae1e6"></div>
+            <div class="trio-color-block" style="background: #0f0f0f"></div>
+          </div>
+          <div class="trio-meta">
+            <div class="trio-title">14. 青柠绿 + 芡实白 + 曜石黑</div>
+            <div class="trio-hex-list">
+              <span>#65dd18</span><span>#eae1e6</span><span>#0f0f0f</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 配色必备 主色+辅色 -->
+      <h2>配色必备 · 主色 & 辅色</h2>
+      <div class="essential-grid">
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #0b3868"></div>
+            <div style="background: #b89076"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #0b3868</div>
+            <div class="essential-hex">辅 #b89076</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #01847e"></div>
+            <div style="background: #e45a40"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #01847e</div>
+            <div class="essential-hex">辅 #e45a40</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #470125"></div>
+            <div style="background: #f2ebd9"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #470125</div>
+            <div class="essential-hex">辅 #f2ebd9</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #f9d46c"></div>
+            <div style="background: #2d436f"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #f9d46c</div>
+            <div class="essential-hex">辅 #2d436f</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #c8161d"></div>
+            <div style="background: #fac03d"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #c8161d</div>
+            <div class="essential-hex">辅 #fac03d</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #492d22"></div>
+            <div style="background: #f1e3c8"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #492d22</div>
+            <div class="essential-hex">辅 #f1e3c8</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #022a99"></div>
+            <div style="background: #fbcd08"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #022a99</div>
+            <div class="essential-hex">辅 #fbcd08</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #66d3c0"></div>
+            <div style="background: #3c4252"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #66d3c0</div>
+            <div class="essential-hex">辅 #3c4252</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #d34947"></div>
+            <div style="background: #023270"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #d34947</div>
+            <div class="essential-hex">辅 #023270</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #fc8416"></div>
+            <div style="background: #2b2a2a"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #fc8416</div>
+            <div class="essential-hex">辅 #2b2a2a</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #e41726"></div>
+            <div style="background: #000000"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #e41726</div>
+            <div class="essential-hex">辅 #000000</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #0b5b52"></div>
+            <div style="background: #fb8919"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #0b5b52</div>
+            <div class="essential-hex">辅 #fb8919</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #ba5bb8"></div>
+            <div style="background: #042341"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #ba5bb8</div>
+            <div class="essential-hex">辅 #042341</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #9fc438"></div>
+            <div style="background: #0a3e68"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #9fc438</div>
+            <div class="essential-hex">辅 #0a3e68</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #fdc41f"></div>
+            <div style="background: #4d2a84"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #fdc41f</div>
+            <div class="essential-hex">辅 #4d2a84</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #d64c2f"></div>
+            <div style="background: #0686ad"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #d64c2f</div>
+            <div class="essential-hex">辅 #0686ad</div>
+          </div>
+        </div>
+        <div class="essential-card">
+          <div class="essential-swatch">
+            <div style="background: #0d3a69"></div>
+            <div style="background: #d85742"></div>
+          </div>
+          <div class="essential-text">
+            <div class="essential-label">主 #0d3a69</div>
+            <div class="essential-hex">辅 #d85742</div>
+          </div>
+        </div>
+      </div>
+
+      <footer>中国传统色 · 视觉手册 | 基于文档生成</footer>
+    </div>
+  </body>
+</html>
